@@ -6,5 +6,6 @@
 Duaij Khalifa Buqais - 20186990
 
 ## A table indicating which student was responsible for which task.
+Duaij Khalifa Buqais - Task 1
 
 ## A link to your live, hosted application on Replit.
