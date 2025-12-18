@@ -1,65 +1,469 @@
-<!--
-  Requirement: Create the Course Homepage
-
-  Instructions:
-  This page will serve as the main entry point to the course website.
-  It should contain a simple navigation menu with links to all the key pages.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- TODO: Add the 'meta' tag for character encoding (UTF-8). -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITCS333 Course Management System</title>
+    <!-- Pico.css Framework -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+        
     
-    <!-- TODO: Add the responsive 'viewport' meta tag. -->
-
-    <!-- TODO: Add a title, e.g., "Web Dev Course Homepage". -->
-
-    <!-- TODO: Link to your CSS framework or stylesheet. -->
 </head>
 <body>
-
-    <!-- TODO: Create a 'header' with a main heading ('h1') like "Welcome to the Web Development Course". -->
-
-    <!-- TODO: Create the 'main' content area. -->
-
-        <!-- TODO: Create a 'nav' element to hold the site navigation. -->
-            <!-- TODO: Add a sub-heading ('h2') "Site Navigation". -->
-
-            <!-- TODO: Create an unordered list ('ul') to hold the links. -->
-
-                <!-- Section: General -->
-                <!-- TODO: Add a list item ('li') with a link ('a') to the Login page.
-                     - Text: "Login" -->
-
-                <!-- Section: Admin Pages -->
-                <!-- TODO: Add a list item ('li') with a link ('a') to the Admin Portal.
-                     - Text: "Admin Portal (Manage Students)" -->
+    <!-- Homepage (Public View) -->
+    <div id="homepage">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="container">
+                <a href="#homepage" class="nav-brand">ITCS333 Course Management</a>
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="#homepage" class="nav-link active">Home</a></li>
+                        <!-- User Dashboard link (hidden by default, shown when logged in) -->
+                        <li id="homepage-dashboard-link" style="display: none;">
+                            <a href="#" class="nav-link dashboard-link">Dashboard</a>
+                        </li>
+                        <li><a href="#login-page" class="nav-link login-link">Login</a></li>
+                    </ul>
+                    <div class="user-info" id="homepage-user-info">
+                        <span>Not logged in</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>ITCS333 Web Development Course</h1>
+                    <p>Master the art of building modern, dynamic web applications from front-end to back-end. Join our interactive learning journey and gain hands-on experience with HTML, CSS, JavaScript, PHP, and MySQL.</p>
+                    <a href="#login-page" class="btn btn-primary login-access-btn">Login to Access Course</a>
+                </div>
+            </div>
+        </header>
+        
+        <main class="container">
+            <!-- Course Overview -->
+            <section class="mb-5">
+                <h2 class="section-header">Course Overview</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Course Information</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Instructor:</strong> MR Abdullah Subah</p>
+                            <p><strong>Semester:</strong> Fall 2025</p>
+                            <p><strong>Schedule:</strong> Mon/Wed 10:00 AM - 11:30 AM</p>
+                            <p><strong>Location:</strong> Science Building, Room 205</p>
+                            <p><strong>Credits:</strong> 3 Credit Hours</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Learning Objectives</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Design multi-page websites using HTML/CSS</li>
+                                <li>Enhance UIs with JavaScript</li>
+                                <li>Develop server-side apps with PHP</li>
+                                <li>Work with MySQL databases using PDO</li>
+                                <li>Implement CRUD operations</li>
+                                <li>Manage user authentication</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Course Announcements</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="announcement">
+                                <p><strong>Project Phase 1 Deadline:</strong> October 15, 2025</p>
+                                <p>Submit your HTML/CSS mockups by the end of the day.</p>
+                            </div>
+                            <hr>
+                            <div class="announcement">
+                                <p><strong>Midterm Exam:</strong> November 5, 2025</p>
+                                <p>The midterm will cover HTML, CSS, and basic JavaScript concepts.</p>
+                            </div>
+                            <hr>
+                            <div class="announcement">
+                                <p><strong>Office Hours:</strong> Fridays 2-4 PM</p>
+                                <p>Virtual office hours available via Zoom.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Quick Actions -->
+            <section class="mb-5" id="quick-access-section">
+                <h2 class="section-header">Quick Access</h2>
+                <div class="grid" id="quick-access-grid">
+                    <!-- This will be dynamically updated based on login state -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Student Login</h3>
+                            <p>Access course materials, assignments, and discussion boards.</p>
+                            <a href="#login-page" class="btn btn-primary student-login-btn">Student Login</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Admin Portal</h3>
+                            <p>Manage users, course settings, and student information.</p>
+                            <a href="#login-page" class="btn btn-secondary admin-login-btn">Admin Login</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Course Syllabus</h3>
+                            <p>Download the complete course syllabus and schedule.</p>
+                            <button class="btn btn-outline">Download PDF</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Login Page -->
+    <div id="login-page" style="display: none;">
+        <nav class="navbar">
+            <div class="container">
+                <a href="#homepage" class="nav-brand">ITCS333 Course Management</a>
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="#homepage" class="nav-link">Home</a></li>
+                        <li><a href="#login-page" class="nav-link active">Login</a></li>
+                    </ul>
+                    <div class="user-info">
+                        <span>Not logged in</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <main class="container">
+            <div class="form-container" style="max-width: 500px; margin: 3rem auto;">
+                <h2 class="section-header">Login to ITCS333</h2>
                 
-                <!-- TODO: Add a list item ('li') with a link ('a') to the Admin Resources page.
-                     - Text: "Admin: Manage Resources" -->
-
-                <!-- TODO: Add a list item ('li') with a link ('a') to the Admin Weekly Breakdown page.
-                     - Text: "Admin: Manage Weekly Breakdown" -->
-
-                <!-- TODO: Add a list item ('li') with a link ('a') to the Admin Assignments page.
-                     - Text: "Admin: Manage Assignments" -->
-
-                <!-- Section: Student Pages -->
-                <!-- TODO: Add a list item ('li') with a link ('a') to the Student Resources page.
-                     - Text: "View Course Resources" -->
-
-                <!-- TODO: Add a list item ('li') with a link ('a') to the Student Weekly Breakdown page.
-                     - Text: "View Weekly Breakdown" -->
-
-                <!-- TODO: Add a list item ('li') with a link ('a') to the Student Assignments page.
-                     - Text: "View Assignments" -->
-              
-                <!-- TODO: Add a list item ('li') with a link ('a') to the Discussion Board.
-                     - Text: "General Discussion Board" -->
-
-            <!-- End of the unordered list. -->
-        <!-- End of the 'nav' element. -->
-
-    <!-- End of 'main'. -->
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Username or Email</label>
+                        <input type="text" id="username" class="form-control" placeholder="Enter your username or email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="role">
+                            <input type="checkbox" id="role" name="role">
+                            Login as Administrator
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="button-group">
+                            <button type="submit" class="btn btn-primary" style="flex: 1;">Login</button>
+                            <button type="button" class="btn btn-outline" id="cancel-login-btn" style="flex: 1;">Cancel</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <p><small><strong>Demo credentials:</strong></small></p>
+                        <p><small>Admin: admin@university.edu / password123</small></p>
+                        <p><small>Student: student@university.edu / student123</small></p>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Admin Dashboard -->
+    <div id="admin-portal" style="display: none;">
+        <nav class="navbar">
+            <div class="container">
+                <a href="#homepage" class="nav-brand">ITCS333 Course Management</a>
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="#homepage" class="nav-link">Home</a></li>
+                        <li><a href="#admin-portal" class="nav-link active">Admin Dashboard</a></li>
+                        <!-- Task 2 - EMPTY <a> tag -->
+                        <li><a class="nav-link">Course Resources</a></li>
+                        <!-- Task 3 - EMPTY <a> tag -->
+                        <li><a class="nav-link">Weekly Breakdown</a></li>
+                        <!-- Task 4 - EMPTY <a> tag -->
+                        <li><a class="nav-link">Assignments</a></li>
+                        <!-- Task 5 - EMPTY <a> tag -->
+                        <li><a class="nav-link">Discussion Board</a></li>
+                        <li><a href="#login-page" class="nav-link logout-link">Logout</a></li>
+                    </ul>
+                    <div class="user-info">
+                        <span>Welcome, <strong>MR Abdullah Subah</strong></span>
+                        <span class="badge badge-admin">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <main class="container">
+            <h1 class="dashboard-header">Admin Dashboard</h1>
+            
+            <div class="grid mb-4">
+                <!-- Change Password Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Change Admin Password</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="change-password-form">
+                            <div class="form-group">
+                                <label for="current-password">Current Password</label>
+                                <input type="password" id="current-password" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="new-password">New Password</label>
+                                <input type="password" id="new-password" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm New Password</label>
+                                <input type="password" id="confirm-password" class="form-control" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Change Password</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Add Student Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Add New Student</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="add-student-form">
+                            <div class="form-group">
+                                <label for="student-name">Full Name</label>
+                                <input type="text" id="student-name" class="form-control" placeholder="Enter student's full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="student-id">Student ID</label>
+                                <input type="text" id="student-id" class="form-control" placeholder="Enter student ID" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="student-email">Email Address</label>
+                                <input type="email" id="student-email" class="form-control" placeholder="Enter student email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="student-password">Default Password</label>
+                                <input type="password" id="student-password" class="form-control" value="student123" required>
+                                <small>Default password will be "student123" unless changed</small>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Add Student</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Student Management -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Student Management</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Student ID</th>
+                                    <th>Full Name</th>
+                                    <th>Email Address</th>
+                                    <th>Date Added</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2022001</td>
+                                    <td>Ahmed Mohammed</td>
+                                    <td>ahmed.mohammed@university.edu</td>
+                                    <td>2025-09-01</td>
+                                    <td><span class="badge badge-student">Active</span></td>
+                                    <td class="action-buttons">
+                                        <button class="btn btn-outline btn-sm edit-btn">Edit</button>
+                                        <button class="btn btn-outline btn-sm delete-btn">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2022002</td>
+                                    <td>Khalid Abdullah</td>
+                                    <td>khalid.abdullah@university.edu</td>
+                                    <td>2025-09-01</td>
+                                    <td><span class="badge badge-student">Active</span></td>
+                                    <td class="action-buttons">
+                                        <button class="btn btn-outline btn-sm edit-btn">Edit</button>
+                                        <button class="btn btn-outline btn-sm delete-btn">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2022003</td>
+                                    <td>Maryam Faisal</td>
+                                    <td>maryam.faisal@university.edu</td>
+                                    <td>2025-09-05</td>
+                                    <td><span class="badge badge-student">Active</span></td>
+                                    <td class="action-buttons">
+                                        <button class="btn btn-outline btn-sm edit-btn">Edit</button>
+                                        <button class="btn btn-outline btn-sm delete-btn">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2022004</td>
+                                    <td>Fatima Hamad</td>
+                                    <td>fatima.hamad@university.edu</td>
+                                    <td>2025-09-10</td>
+                                    <td><span class="badge badge-student">Active</span></td>
+                                    <td class="action-buttons">
+                                        <button class="btn btn-outline btn-sm edit-btn">Edit</button>
+                                        <button class="btn btn-outline btn-sm delete-btn">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2022005</td>
+                                    <td>Yousif Ali</td>
+                                    <td>yousif.ali@university.edu</td>
+                                    <td>2025-09-15</td>
+                                    <td><span class="badge badge-student">Active</span></td>
+                                    <td class="action-buttons">
+                                        <button class="btn btn-outline btn-sm edit-btn">Edit</button>
+                                        <button class="btn btn-outline btn-sm delete-btn">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Edit Student Modal -->
+            <dialog id="edit-student-modal">
+                <article>
+                    <header>
+                        <h3>Edit Student Information</h3>
+                    </header>
+                    <form id="edit-student-form">
+                        <div class="form-group">
+                            <label for="edit-student-id">Student ID</label>
+                            <input type="text" id="edit-student-id" class="form-control" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="edit-student-name">Full Name</label>
+                            <input type="text" id="edit-student-name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="edit-student-email">Email Address</label>
+                            <input type="email" id="edit-student-email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="edit-student-password">Reset Password</label>
+                            <input type="password" id="edit-student-password" class="form-control" placeholder="Leave blank to keep current password">
+                        </div>
+                        
+                        <footer>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                            <button type="button" class="btn btn-outline" onclick="document.getElementById('edit-student-modal').close()">Cancel</button>
+                        </footer>
+                    </form>
+                </article>
+            </dialog>
+            
+            <!-- Delete Confirmation Modal -->
+            <dialog id="delete-student-modal">
+                <article>
+                    <header>
+                        <h3>Confirm Deletion</h3>
+                    </header>
+                    <p>Are you sure you want to delete <strong id="delete-student-name"></strong> (<span id="delete-student-id"></span>)?</p>
+                    <p style="color: var(--danger-color);"><strong>Warning:</strong> This action cannot be undone.</p>
+                    <footer>
+                        <button type="button" class="btn btn-danger" id="confirm-delete-btn">Delete Student</button>
+                        <button type="button" class="btn btn-outline" onclick="document.getElementById('delete-student-modal').close()">Cancel</button>
+                    </footer>
+                </article>
+            </dialog>
+        </main>
+    </div>
+    
+    <!-- Student Dashboard -->
+    <div id="student-view" style="display: none;">
+        <nav class="navbar">
+            <div class="container">
+                <a href="#homepage" class="nav-brand">ITCS333 Course Management</a>
+                <div class="nav-menu">
+                    <ul class="nav-links">
+                        <li><a href="#homepage" class="nav-link">Home</a></li>
+                        <li><a href="#student-view" class="nav-link active">Student Dashboard</a></li>
+                        <!-- Task 2 - EMPTY <a> tag -->
+                        <li><a class="nav-link">Course Resources</a></li>
+                        <!-- Task 3 - EMPTY <a> tag -->
+                        <li><a class="nav-link">Weekly Breakdown</a></li>
+                        <!-- Task 4 - EMPTY <a> tag -->
+                        <li><a class="nav-link">Assignments</a></li>
+                        <!-- Task 5 - EMPTY <a> tag -->
+                        <li><a class="nav-link">Discussion Board</a></li>
+                        <li><a href="#login-page" class="nav-link logout-link">Logout</a></li>
+                    </ul>
+                    <div class="user-info">
+                        <span>Welcome, <strong>Ahmed Mohammed</strong></span>
+                        <span class="badge badge-student">Student</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <main class="container">
+            <h1 class="dashboard-header">Student Dashboard</h1>
+            
+            <div class="empty-state">
+                <div class="empty-state-icon">👨‍🎓</div>
+                <h2>Welcome to Your Dashboard</h2>
+                <p>Welcome to the ITCS333 student portal. From here you can access course materials, view weekly breakdowns, check assignments, and participate in discussions.</p>
+                <p><em>This is a placeholder for the student view. The actual course content pages will be implemented by other team members.</em></p>
+                <a href="#homepage" class="btn btn-primary return-home-btn">Return to Homepage</a>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Footer - UPDATED TEXT -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Course Management System, Built by the Students.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for Navigation and Interactions -->
+    <script src="main.js"></script>
 </body>
 </html>
